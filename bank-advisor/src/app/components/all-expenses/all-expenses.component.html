@@ -1,5 +1,8 @@
 <div class="margin-x">
-  <app-big-expenses [bigTransactions]="bigTransactions"></app-big-expenses>
+  <app-big-expenses
+    *ngIf="this.route === 'bigTransactions'"
+    [bigTransactions]="bigTransactions"
+  ></app-big-expenses>
   <app-regular-expenses
     [regularTransactions]="regularTransactions"
   ></app-regular-expenses>
