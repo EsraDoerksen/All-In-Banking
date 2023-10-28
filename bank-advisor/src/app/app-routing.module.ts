@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BigExpensesComponent } from './components/big-expenses/big-expenses.component';
+import { RegularExpensesComponent } from './components/regular-expenses/regular-expenses.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: 'matches', pathMatch: 'full' },
+  { path: 'big-expenses', component: BigExpensesComponent },
+  { path: 'regular-expenses', component: RegularExpensesComponent },
+  { path: '**', redirectTo: 'matches', pathMatch: 'full' },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
