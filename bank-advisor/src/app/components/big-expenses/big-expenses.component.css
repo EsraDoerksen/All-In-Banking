@@ -1,0 +1,13 @@
+.text-orange {
+  border-color: orange;
+}
+
+.text-red {
+  border-color: red;
+}
+
+.red {
+  fill: red;
+  color: red;
+  background-color: red;
+}
