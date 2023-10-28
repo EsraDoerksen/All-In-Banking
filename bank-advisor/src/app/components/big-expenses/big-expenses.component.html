@@ -1,8 +1,18 @@
-<h1 class="display-3">Big expenses</h1>
+<h1 class="display-5">Big expenses</h1>
+<p>
+  Those are the transactions, which have a big spending amount. You should
+  analyze what you are spending your money on.
+</p>
 
-<ul *ngFor="let bigTransaction of this.bigTransactions" class="list-group">
-  <li class="border">
-    <div class="card" style="width: 18rem">
+<ul *ngFor="let bigTransaction of this.bigTransactions" class="list-group ml-5">
+  <li class="d-flex align-items-center justify-content-center mb-2">
+    <div
+      class="card"
+      [ngClass]="{
+        'text-red': bigTransaction.amount > 800,
+        'text-orange': bigTransaction.amount > 299
+      }"
+    >
       <div class="card-body">
         <h5 class="card-title">{{ bigTransaction.description }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">
@@ -10,9 +20,9 @@
           {{ bigTransaction.location }}
         </h6>
         <p class="card-text">
-          You payed {{ bigTransaction.amount }} CHF for a
-          {{ bigTransaction.description }}. In the future you could definitely
-          save money there!
+          At the {{ bigTransaction.timeStamp }} you bought a
+          {{ bigTransaction.description }} at {{ bigTransaction.location }} for
+          {{ bigTransaction.amount }} CHF.
         </p>
       </div>
     </div>

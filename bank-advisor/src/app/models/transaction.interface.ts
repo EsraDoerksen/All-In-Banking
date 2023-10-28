@@ -1,5 +1,5 @@
 export interface Transaction {
-  timeStamp: Date;
+  timeStamp: string;
   description: string;
   amount: number;
   location: string;

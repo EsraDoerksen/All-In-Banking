@@ -7,6 +7,8 @@ import { User } from './entity/user.entity';
 import { Account } from './entity/account.entity';
 import { HttpModule } from '@nestjs/axios';
 import { ConfigurationService } from './config/configuration.service';
+import { PassportModule } from '@nestjs/passport';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
   imports: [
@@ -19,8 +21,9 @@ import { ConfigurationService } from './config/configuration.service';
         configService.typeOrmConfig,
     }),
     TypeOrmModule.forFeature([User, Account]),
+    PassportModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, JwtStrategy],
 })
 export class AppModule {}
