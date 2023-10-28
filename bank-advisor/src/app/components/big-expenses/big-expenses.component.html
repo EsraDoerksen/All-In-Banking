@@ -1,14 +1,20 @@
 <h1 class="display-3">Big expenses</h1>
 
-<ul *ngFor="let expense of this.bigExpenses"class="list-group">
+<ul *ngFor="let expense of this.bigExpenses" class="list-group">
   <li class="border">
-    <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{ expense.product }}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">You purchased a {{ expense.product }} at {{ expense.place }}</h6>
-      <p class="card-text">You payed {{ expense.amount}} CHF for a {{ expense.product }}. In the future you could definitely save money there!</p>
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title">{{ expense.description }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          You purchased a {{ expense.description }} at {{ expense.location }}
+        </h6>
+        <p class="card-text">
+          You payed {{ expense.amount }} CHF for a {{ expense.description }}. In
+          the future you could definitely save money there!
+        </p>
+      </div>
     </div>
-  </div></li>
+  </li>
   <li class="list-group-item">A second item</li>
   <li class="list-group-item">A third item</li>
   <li class="list-group-item">A fourth item</li>
