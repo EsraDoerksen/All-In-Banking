@@ -7,6 +7,7 @@ import { PersonCardComponent } from './person-card/person-card.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { MatchesComponent } from './matches/matches.component';
 import { TopNavComponent } from './top-nav/top-nav.component';
+import { ChatListComponent } from './chat-list/chat-list.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TopNavComponent } from './top-nav/top-nav.component';
     PersonCardComponent,
     SideNavComponent,
     MatchesComponent,
-    TopNavComponent
+    TopNavComponent,
+    ChatListComponent
   ],
   imports: [
     BrowserModule,
