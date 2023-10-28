@@ -3,4 +3,14 @@
   color: white;
 }
 
+.btn-primary {
+  border: 0px;
+  background-color: #ffa1a1;
+}
+
+.btn-secondary {
+  border: 0px;
+  background-color: #888888;
+}
+
 

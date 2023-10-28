@@ -8,6 +8,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { MatchesComponent } from './matches/matches.component';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
+import { ChatEntryComponent } from './chat-entry/chat-entry.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ChatListComponent } from './chat-list/chat-list.component';
     SideNavComponent,
     MatchesComponent,
     TopNavComponent,
-    ChatListComponent
+    ChatListComponent,
+    ChatEntryComponent
   ],
   imports: [
     BrowserModule,

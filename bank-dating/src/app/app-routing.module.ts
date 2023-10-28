@@ -4,8 +4,12 @@ import { MatchesComponent } from './matches/matches.component';
 import { ChatListComponent } from './chat-list/chat-list.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'matches', pathMatch: 'full' },
   { path: 'matches', component: MatchesComponent },
-  { path: 'chat-list', component: ChatListComponent },];
+  { path: 'chat-list', component: ChatListComponent },
+  { path: '**', redirectTo: 'matches', pathMatch: 'full' },
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

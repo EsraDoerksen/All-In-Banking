@@ -1,9 +1,3 @@
-#card {
-  border: 10pt solid #e1e1e1;
-  border-radius: 10px 10px 10px 10px;
-  background-color: #e1e1e1;
-}
-
 #icon {
   font-size: 70pt;
   color: #ffa1a1;
@@ -19,16 +13,8 @@
   border-radius: 10px 10px 10px 10px;
 }
 
-#interactions {
-
-}
-
-.btn-primary {
-  border: 0px;
-  background-color: #ffa1a1;
-}
-
-.btn-secondary {
-  border: 0px;
-  background-color: #888888;
+#card {
+  border: 10pt solid #e1e1e1;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #e1e1e1;
 }
