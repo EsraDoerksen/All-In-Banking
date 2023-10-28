@@ -1,0 +1,23 @@
+<h1 class="display-3">Contract expenses</h1>
+<p>
+  Those are the transactions, which are bound to a contract. Are those contract
+  really the best.
+</p>
+<ul *ngFor="let transaction of this.contractTransactions" class="list-group">
+  <li class="border">
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title">{{ transaction.description }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          You purchased a {{ transaction.description }} at
+          {{ transaction.location }}
+        </h6>
+        <p class="card-text">
+          You payed {{ transaction.amount }} CHF for a
+          {{ transaction.description }}. In the future you could definitely save
+          money there!
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>
