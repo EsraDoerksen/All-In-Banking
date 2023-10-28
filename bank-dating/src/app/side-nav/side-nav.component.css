@@ -1,3 +1,11 @@
+i {
+  color: #ffa1a1;
+}
+
 nav {
   color: #888888;
+}
+
+.selected {
+  color: #ffa1a1;
 }

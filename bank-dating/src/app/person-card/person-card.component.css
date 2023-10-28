@@ -1,14 +1,34 @@
 #card {
-  border: 10pt solid #d0d0d0;
+  border: 10pt solid #e1e1e1;
   border-radius: 10px 10px 10px 10px;
-  background-color: #d0d0d0;
+  background-color: #e1e1e1;
 }
 
 #icon {
-  font-size: 50pt;
+  font-size: 70pt;
   color: #ffa1a1;
   background-color: white;
   border: 1pt solid white;
   border-radius: 10px 10px 10px 10px;
+}
+
+#description {
+  color: #888888;
   background-color: white;
+  border: 1pt solid white;
+  border-radius: 10px 10px 10px 10px;
+}
+
+#interactions {
+
+}
+
+.btn-primary {
+  border: 0px;
+  background-color: #ffa1a1;
+}
+
+.btn-secondary {
+  border: 0px;
+  background-color: #888888;
 }
