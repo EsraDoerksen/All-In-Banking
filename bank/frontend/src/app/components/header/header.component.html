@@ -1,0 +1,14 @@
+<mat-toolbar>
+  <span>BANK</span>
+  <span class="example-spacer"></span>
+  <section>
+    <div class="example-button-row">
+      <div *ngIf="isUserLoggedIn$ | async">
+        <a mat-button (click)="logout()" target="_blank">Logout</a>
+      </div>
+      <div *ngIf="!(isUserLoggedIn$ | async)">
+        <a mat-button (click)="login()" target="_blank">Login</a>
+      </div>
+    </div>
+  </section>
+</mat-toolbar>
