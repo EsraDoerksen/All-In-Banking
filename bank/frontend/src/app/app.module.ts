@@ -17,15 +17,21 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { AppsListComponent } from './components/apps-list/apps-list.component';
-
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { RouterModule } from '@angular/router';
+import {AuthGuard} from "./guards/auth-guard.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AppsListComponent
+    AppsListComponent,
+    HomepageComponent,
+    LoginPageComponent
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
     CommonModule,
@@ -40,7 +46,7 @@ import { AppsListComponent } from './components/apps-list/apps-list.component';
     MatButtonModule,
     MatGridListModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
