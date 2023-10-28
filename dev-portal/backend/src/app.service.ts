@@ -10,7 +10,11 @@ export class AppService {
     private readonly appRepository: Repository<App>,
   ) {}
 
-  listApps() {
-    return this.appRepository.find();
+  async listApps() {
+    const apps = await this.appRepository.find();
+    return apps.map((app) => ({
+      ...app,
+      url: `http://localhost:3001?${app.appId}`,
+    }));
   }
 }

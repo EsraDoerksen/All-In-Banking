@@ -15,8 +15,10 @@ export class AllExpensesComponent {
   bigTransactions: Transaction[] = [];
   regularTransactions: Transaction[] = [];
   contractTransactions: Transaction[] = [];
+  route: string | null = '';
 
   constructor() {
+    this.route = localStorage.getItem('route');
     this.user = {
       userId: '1',
       firstname: 'Esra',
@@ -44,30 +46,30 @@ export class AllExpensesComponent {
         } as Transaction,
         {
           timeStamp: formatDate(new Date()),
-          amount: 900,
+          amount: 200,
           description: 'Drone',
-          location: 'Media Markt',
+          location: 'Digitec',
           standingOrder: false,
         } as Transaction,
         {
           timeStamp: formatDate(new Date()),
           amount: 302,
-          description: 'Drone',
-          location: 'Media Markt',
+          description: 'Handy',
+          location: 'Steg',
           standingOrder: false,
         } as Transaction,
         {
           timeStamp: formatDate(new Date()),
-          amount: 500,
-          description: 'Drone',
-          location: 'Media Markt',
+          amount: 100,
+          description: 'Sofa',
+          location: 'IKEA',
           standingOrder: false,
         } as Transaction,
         {
           timeStamp: formatDate(new Date()),
           amount: 700,
-          description: 'Drone',
-          location: 'Media Markt',
+          description: 'Auto',
+          location: 'Mercedes',
           standingOrder: false,
         } as Transaction,
         {

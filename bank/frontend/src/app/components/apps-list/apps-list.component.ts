@@ -3,6 +3,9 @@ import {Store} from "@ngrx/store";
 import {State} from "../../store/state/app.state";
 import {BreakpointObserver, Breakpoints, BreakpointState} from "@angular/cdk/layout";
 import {map} from "rxjs";
+import axios from 'axios';
+import {App} from "./app.model";
+
 
 @Component({
   selector: 'app-apps-list',
@@ -10,24 +13,39 @@ import {map} from "rxjs";
   styleUrls: ['./apps-list.component.css']
 })
 export class AppsListComponent implements OnInit {
-
   cols: number;
-  items = [
-    { title: 'Worinder', description: 'Description for Item 1', image: 'path/to/image1.jpg' },
-    { title: 'IMonneyRobot', description: 'Description for Item 2', image: 'path/to/image1.jpg' },
-    { title: 'Financy', description: 'Description for Item 1', image: 'path/to/image1.jpg' },
-    { title: 'Testamania', description: 'Description for Item 2', image: 'path/to/image1.jpg' },
-    { title: 'Loo', description: 'Description for Item 1', image: 'path/to/image1.jpg' }
-  ];
+  iconDataUrl: string;
+  apps: App[] = [];
 
   constructor(private store: Store<State>,
               private breakpointObserver: BreakpointObserver
   ) {
-    this.cols = 3;
+    this.cols = 2;
+    this.iconDataUrl = '';
   }
 
   ngOnInit() {
     this.listenToDeviceSize();
+    this.getApps();
+    //this.iconDataUrl = this.convertIconDataToUrl(this.apps[0].icon.data);
+  }
+
+  private async getApps() {
+    try {
+      const response = await axios.get('http://localhost:3000/apps');
+      this.apps = response.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  private convertIconDataToUrl(iconData: number[]): string {
+    const base64 = btoa(String.fromCharCode.apply(null, iconData));
+    return `data:image/png;base64,${base64}`;
+  }
+
+  openInNewTab(url: string) {
+    window.open(url, '_blank');
   }
 
   listenToDeviceSize() {
@@ -41,10 +59,8 @@ export class AppsListComponent implements OnInit {
       map((state: BreakpointState) => {
         if (state.breakpoints[Breakpoints.XSmall]) {
           return 1;
-        } else if (state.breakpoints[Breakpoints.Small]) {
-          return 2;
         } else {
-          return 3;
+          return 2;
         }
       })
     ).subscribe(cols => this.cols = cols);

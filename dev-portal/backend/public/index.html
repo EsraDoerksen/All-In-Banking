@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <h1>Hier ist der Outer IFframe.</h1>
+    Er lädt den inneren mit der AppId aus der Query.
+    <br />
+    <div id="iframe"></div>
+  </body>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const appId = urlParams.get('appId');
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('src', 'http://localhost:3001/apps/' + appId);
+    document.getElementById('iframe').appendChild(iframe);
+  </script>
+</html>

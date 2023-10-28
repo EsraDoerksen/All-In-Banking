@@ -4,49 +4,40 @@
   analyze what you are spending your money on.
 </p>
 
-<ul *ngFor="let bigTransaction of this.bigTransactions" class="list-group ml-5">
-  <li class="d-flex align-items-center justify-content-center mb-2">
-    <div
-      class="card"
-      [ngClass]="{
-        'text-red': bigTransaction.amount > 800,
-        'text-orange': bigTransaction.amount > 299
-      }"
-    >
-      <div class="card-body">
-        <h5 class="card-title">{{ bigTransaction.description }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">
-          You purchased a {{ bigTransaction.description }} at
-          {{ bigTransaction.location }}
-        </h6>
-        <p class="card-text">
-          At the {{ bigTransaction.timeStamp }} you bought a
-          {{ bigTransaction.description }} at {{ bigTransaction.location }} for
-          {{ bigTransaction.amount }} CHF.
-        </p>
-      </div>
-    </div>
-    <div class="card mb-3">
+<ul *ngFor="let bigTransaction of this.bigTransactions" class="list-group">
+  <li class="d-flex align-items-center justify-content-center mb-2 rounded">
+    <div class="card mb-3 w-100 border border-success rounded">
       <div class="row g-0">
-        <div class="col-md-2 bg-grey p-1">
-          <p class="text-center align-text-middle fw-bold">
+        <div class="col-md-2 bg-light">
+          <p class="text-center align-text-middle fw-bold mt-4 h5">
             {{ bigTransaction.amount }} CHF
           </p>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">{{ bigTransaction.description }}</h5>
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="card-text">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              You bought a
+              {{ bigTransaction.description }} at {{ bigTransaction.location }}.
             </p>
           </div>
+        </div>
+        <div class="col-md-2 bg-light p-1">
+          <p class="text-center align-text-middle mt-4">
+            Bought at the {{ bigTransaction.timeStamp }}
+          </p>
         </div>
       </div>
     </div>
   </li>
 </ul>
+<div class="card mb-3 w-100 border border-success rounded bg-success">
+  <div class="row g-0">
+    <div>
+      <div class="card-body">
+        <h5 class="card-title">Test</h5>
+        <p class="card-text">Test</p>
+      </div>
+    </div>
+  </div>
+</div>
