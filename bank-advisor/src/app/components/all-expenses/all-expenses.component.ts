@@ -43,7 +43,7 @@ export class AllExpensesComponent {
         } as Transaction,
         {
           timeStamp: new Date(),
-          amount: 100,
+          amount: 900,
           description: 'Drone',
           location: 'Media Markt',
           standingOrder: false,
