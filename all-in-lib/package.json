@@ -1,0 +1,22 @@
+{
+  "name": "@allinbanking/lib",
+  "version": "0.0.1",
+  "description": "Shared Lib for apps",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npm install && rimraf dist && tsc"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "18.18.0",
+    "rimraf": "5.0.5",
+    "typescript": "5.2.2"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": "git://github.com/EsraDoerksen/All-In-Banking.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}

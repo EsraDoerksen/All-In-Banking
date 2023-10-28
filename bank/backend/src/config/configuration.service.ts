@@ -10,6 +10,10 @@ export class ConfigurationService {
     return this.configService.get('DEV_PORTAL_ROOT_URL');
   }
 
+  get jwkUri(): string {
+    return this.configService.get('JWK_URI');
+  }
+
   get typeOrmConfig(): TypeOrmModuleOptions {
     return {
       type: 'mariadb',
