@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { User } from '../../models/user.interface';
 import { Account } from '../../models/account.interface';
 import { Transaction } from '../../models/transaction.interface';
+import { formatDate } from '../../util/date.util';
 
 @Component({
   selector: 'app-all-expenses',
@@ -28,49 +29,49 @@ export class AllExpensesComponent {
       balance: 23000,
       transactions: [
         {
-          timeStamp: new Date(),
+          timeStamp: formatDate(new Date()),
           amount: 275,
           description: 'Zusatz Krankenkasse',
           location: 'Assura',
           standingOrder: true,
         } as Transaction,
         {
-          timeStamp: new Date(),
+          timeStamp: formatDate(new Date()),
           amount: 200,
           description: 'Krankenkasse',
           location: 'Atupri',
           standingOrder: true,
         } as Transaction,
         {
-          timeStamp: new Date(),
+          timeStamp: formatDate(new Date()),
           amount: 900,
           description: 'Drone',
           location: 'Media Markt',
           standingOrder: false,
         } as Transaction,
         {
-          timeStamp: new Date(),
+          timeStamp: formatDate(new Date()),
           amount: 302,
           description: 'Drone',
           location: 'Media Markt',
           standingOrder: false,
         } as Transaction,
         {
-          timeStamp: new Date(),
+          timeStamp: formatDate(new Date()),
           amount: 500,
           description: 'Drone',
           location: 'Media Markt',
           standingOrder: false,
         } as Transaction,
         {
-          timeStamp: new Date(),
+          timeStamp: formatDate(new Date()),
           amount: 700,
           description: 'Drone',
           location: 'Media Markt',
           standingOrder: false,
         } as Transaction,
         {
-          timeStamp: new Date(),
+          timeStamp: formatDate(new Date()),
           amount: 700,
           description: 'Drone',
           location: 'Media Markt',
