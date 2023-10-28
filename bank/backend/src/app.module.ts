@@ -3,14 +3,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigurationModule } from './config/configuration.module';
-import { ConfigurationService } from './config/configuration.service';
 import { User } from './entity/user.entity';
 import { Account } from './entity/account.entity';
 import { HttpModule } from '@nestjs/axios';
+import { ConfigurationService } from './config/configuration.service';
 
 @Module({
   imports: [
     HttpModule,
+    ConfigurationModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigurationModule],
       inject: [ConfigurationService],

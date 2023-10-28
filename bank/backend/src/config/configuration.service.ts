@@ -6,6 +6,10 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 export class ConfigurationService {
   constructor(private readonly configService: ConfigService) {}
 
+  get devPortalRootUrl(): string {
+    return this.configService.get('DEV_PORTAL_ROOT_URL');
+  }
+
   get typeOrmConfig(): TypeOrmModuleOptions {
     return {
       type: 'mariadb',
