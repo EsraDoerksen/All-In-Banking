@@ -10,7 +10,7 @@
           <mat-card class="card-background">
             <mat-card-content>
               <h2 class="centered-title">{{ item.name }}</h2>
-              <p>{{ item.description }}</p>
+              <p class="centered-title">{{ item.description }}</p>
             </mat-card-content>
             <img [src]="iconDataUrl" alt="{{ item.name }} Icon">
             <button mat-button color="primary" (click)="openInNewTab(item.url)">Open</button>
