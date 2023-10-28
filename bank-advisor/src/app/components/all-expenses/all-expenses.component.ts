@@ -13,7 +13,7 @@ export class AllExpensesComponent {
   account: Account = {} as Account;
   bigTransactions: Transaction[] = [];
   regularTransactions: Transaction[] = [];
-  contractTransaction: Transaction[] = [];
+  contractTransactions: Transaction[] = [];
 
   constructor() {
     this.user = {
@@ -32,7 +32,7 @@ export class AllExpensesComponent {
           amount: 200,
           description: 'Drone',
           location: 'Media Markt',
-          standingOrder: false,
+          standingOrder: true,
         } as Transaction,
         {
           timeStamp: new Date(),
@@ -96,7 +96,7 @@ export class AllExpensesComponent {
       (t) => transactionCounts[t.location] > 2
     );
 
-    this.contractTransaction = account.transactions.filter(
+    this.contractTransactions = account.transactions.filter(
       (t) => t.standingOrder
     );
   }
