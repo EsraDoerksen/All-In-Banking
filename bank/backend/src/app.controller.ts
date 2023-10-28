@@ -7,6 +7,16 @@ export class AppController {
 
   @Get('user')
   getUser() {
-    return {userId: 'user123'}
+    return this.appService.getUser('1');
+  }
+
+  @Get('account')
+  getAccount() {
+    return this.appService.getAccount('1');
+  }
+
+  @Get('apps')
+  listApps() {
+    return this.appService.listApps();
   }
 }
