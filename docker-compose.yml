@@ -1,22 +1,36 @@
 version: "3.0"
 services:
-  database:
+  bankdb:
     image: mariadb:10.5.12
     volumes:
-      - kundenportaldata:/var/lib/mysql
+      - bankdbdata:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=anuv37-Adges
-      - MYSQL_DATABASE=allinbanking
-      - MYSQL_USER=allinbanking
+      - MYSQL_DATABASE=bankdb
+      - MYSQL_USER=bankdb
       - MYSQL_PASSWORD=h7D-dae28s
+      - TZ=Europe/Zurich
+  devportaldb:
+    image: mariadb:10.5.12
+    volumes:
+      - devportaldbdata:/var/lib/mysql
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=dj893-K34
+      - MYSQL_DATABASE=devportaldb
+      - MYSQL_USER=devportaldb
+      - MYSQL_PASSWORD=bi72-Daiu3g
       - TZ=Europe/Zurich
   adminer:
     image: adminer:4.8.1
     depends_on:
-      - database
+      - bankdb
+      - devportaldb
     ports:
       - 8080:8080
 volumes:
-  kundenportaldata:
+  bankdbdata:
+  devportaldbdata:
