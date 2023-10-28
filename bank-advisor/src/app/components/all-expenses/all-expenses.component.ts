@@ -13,7 +13,7 @@ export class AllExpensesComponent {
   account: Account = {} as Account;
   bigTransactions: Transaction[] = [];
   regularTransactions: Transaction[] = [];
-  contractTransaction: Transaction[] = [];
+  contractTransactions: Transaction[] = [];
 
   constructor() {
     this.user = {
@@ -29,28 +29,28 @@ export class AllExpensesComponent {
       transactions: [
         {
           timeStamp: new Date(),
-          amount: 700,
+          amount: 200,
+          description: 'Drone',
+          location: 'Media Markt',
+          standingOrder: true,
+        } as Transaction,
+        {
+          timeStamp: new Date(),
+          amount: 100,
           description: 'Drone',
           location: 'Media Markt',
           standingOrder: false,
         } as Transaction,
         {
           timeStamp: new Date(),
-          amount: 700,
+          amount: 302,
           description: 'Drone',
           location: 'Media Markt',
           standingOrder: false,
         } as Transaction,
         {
           timeStamp: new Date(),
-          amount: 700,
-          description: 'Drone',
-          location: 'Media Markt',
-          standingOrder: false,
-        } as Transaction,
-        {
-          timeStamp: new Date(),
-          amount: 700,
+          amount: 500,
           description: 'Drone',
           location: 'Media Markt',
           standingOrder: false,
@@ -79,7 +79,7 @@ export class AllExpensesComponent {
 
   filterTransactionsIntoGroups(account: Account) {
     this.bigTransactions = account.transactions.filter((t) => {
-      t.amount > 300;
+      return t.amount > 300;
     });
 
     const transactionCounts: { [key: string]: number } = {};
@@ -96,7 +96,7 @@ export class AllExpensesComponent {
       (t) => transactionCounts[t.location] > 2
     );
 
-    this.contractTransaction = account.transactions.filter(
+    this.contractTransactions = account.transactions.filter(
       (t) => t.standingOrder
     );
   }

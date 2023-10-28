@@ -1,3 +1,7 @@
-<app-big-expenses></app-big-expenses>
-<app-regular-expenses></app-regular-expenses>
-<app-contract-expenses></app-contract-expenses>
+<app-big-expenses [bigTransactions]="bigTransactions"></app-big-expenses>
+<app-regular-expenses
+  [regularTransactions]="regularTransactions"
+></app-regular-expenses>
+<app-contract-expenses
+  [contractTransactions]="contractTransactions"
+></app-contract-expenses>
