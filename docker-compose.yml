@@ -1,0 +1,22 @@
+version: "3.0"
+services:
+  database:
+    image: mariadb:10.5.12
+    volumes:
+      - kundenportaldata:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=anuv37-Adges
+      - MYSQL_DATABASE=allinbanking
+      - MYSQL_USER=allinbanking
+      - MYSQL_PASSWORD=h7D-dae28s
+      - TZ=Europe/Zurich
+  adminer:
+    image: adminer:4.8.1
+    depends_on:
+      - database
+    ports:
+      - 8080:8080
+volumes:
+  kundenportaldata:
