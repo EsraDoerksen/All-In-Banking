@@ -20,7 +20,8 @@ import { AppsListComponent } from './components/apps-list/apps-list.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RouterModule } from '@angular/router';
-import {AuthGuard} from "./guards/auth-guard.service";
+import {AuthModule, LogLevel} from "angular-auth-oidc-client";
+import {AuthEffects} from "./auth/store/auth.effects";
 
 @NgModule({
   declarations: [
@@ -44,9 +45,22 @@ import {AuthGuard} from "./guards/auth-guard.service";
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    AuthModule.forRoot({
+      config: {
+        authority: 'https://dev-o8lopd1x78xgb35o.us.auth0.com',
+        redirectUrl: 'http://localhost:4200',
+        postLogoutRedirectUri: window.location.origin,
+        clientId: '1IOUcn5eG1ZTrI8DJ9V4690c8T40NK3U',
+        scope: 'openid profile email offline_access',
+        responseType: 'code',
+        silentRenew: true,
+        useRefreshToken: true,
+        logLevel: LogLevel.Debug,
+      },
+    }),
   ],
-  providers: [AuthGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
