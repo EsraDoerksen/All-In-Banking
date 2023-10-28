@@ -1,0 +1,14 @@
+#card {
+  border: 10pt solid #d0d0d0;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #d0d0d0;
+}
+
+#icon {
+  font-size: 50pt;
+  color: #ffa1a1;
+  background-color: white;
+  border: 1pt solid white;
+  border-radius: 10px 10px 10px 10px;
+  background-color: white;
+}
