@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+#logo {
+  font-size: 50pt;
+  color: white;
+}
+
+.btn-primary {
+  border: 0px;
+  background-color: #ffa1a1;
+}
+
+.btn-secondary {
+  border: 0px;
+  background-color: #888888;
+}
+
+
