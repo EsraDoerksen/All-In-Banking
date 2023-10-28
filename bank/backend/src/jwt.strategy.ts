@@ -16,12 +16,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
           cb(err);
         },
       }),
-      // issuer: configurationService.JWT_CONFIGURATION.JWT_ISSUER,
-      // audience: configurationService.JWT_CONFIGURATION.JWT_CLIENT_ID,
+      issuer: 'https://dev-o8lopd1x78xgb35o.us.auth0.com/',
+      audience: '1IOUcn5eG1ZTrI8DJ9V4690c8T40NK3U',
     });
   }
 
-  async validate(payload: any) {
-    return { userId: payload.sub, username: payload.username };
-  }
+  //   async validate(payload: any) {
+  //     return { userId: payload.sub, username: payload.username };
+  //   }
 }
