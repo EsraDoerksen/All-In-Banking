@@ -44,6 +44,10 @@ export class AppsListComponent implements OnInit {
     return `data:image/png;base64,${base64}`;
   }
 
+  openInNewTab(url: string) {
+    window.open(url, '_blank');
+  }
+
   listenToDeviceSize() {
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -55,8 +59,6 @@ export class AppsListComponent implements OnInit {
       map((state: BreakpointState) => {
         if (state.breakpoints[Breakpoints.XSmall]) {
           return 1;
-        } else if (state.breakpoints[Breakpoints.Small]) {
-          return 2;
         } else {
           return 2;
         }

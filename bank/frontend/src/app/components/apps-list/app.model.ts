@@ -1,7 +1,6 @@
 export interface App {
   name: string;
   description: string;
-  image?: string;
-  icon?: any;
-  // Add other properties as needed
+  icon: any;
+  url: string;
 }
