@@ -1,16 +1,18 @@
 <h1 class="display-3">Big expenses</h1>
 
-<ul *ngFor="let expense of this.bigExpenses" class="list-group">
+<ul *ngFor="let bigTransaction of this.bigTransactions" class="list-group">
   <li class="border">
     <div class="card" style="width: 18rem">
       <div class="card-body">
-        <h5 class="card-title">{{ expense.description }}</h5>
+        <h5 class="card-title">{{ bigTransaction.description }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">
-          You purchased a {{ expense.description }} at {{ expense.location }}
+          You purchased a {{ bigTransaction.description }} at
+          {{ bigTransaction.location }}
         </h6>
         <p class="card-text">
-          You payed {{ expense.amount }} CHF for a {{ expense.description }}. In
-          the future you could definitely save money there!
+          You payed {{ bigTransaction.amount }} CHF for a
+          {{ bigTransaction.description }}. In the future you could definitely
+          save money there!
         </p>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <h1 class="display-3">Contract expenses</h1>
 
-<ul *ngFor="let expense of this.contractExpenses" class="list-group">
-  <li class="list-group-item">{{ expense.description }}</li>
+<ul *ngFor="let transaction of this.contractTransactions" class="list-group">
+  <li class="list-group-item">{{ transaction.description }}</li>
   <li class="list-group-item">A second item</li>
   <li class="list-group-item">A third item</li>
   <li class="list-group-item">A fourth item</li>
