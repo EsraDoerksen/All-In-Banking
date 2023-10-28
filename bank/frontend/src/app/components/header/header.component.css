@@ -14,4 +14,7 @@ mat-grid-tile {
   background: lightblue;
 }
 
+.mat-toolbar {
+  background-color: #3b5998 !important;
+}
 
