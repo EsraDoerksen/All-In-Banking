@@ -7,13 +7,15 @@ import { BigExpensesComponent } from './components/big-expenses/big-expenses.com
 import { RegularExpensesComponent } from './components/regular-expenses/regular-expenses.component';
 import { ContractExpensesComponent } from './components/contract-expenses/contract-expenses.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AllExpensesComponent } from './components/all-expenses/all-expenses.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BigExpensesComponent,
     RegularExpensesComponent,
-    ContractExpensesComponent
+    ContractExpensesComponent,
+    AllExpensesComponent
   ],
   imports: [
     BrowserModule,
