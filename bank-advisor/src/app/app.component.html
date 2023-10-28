@@ -1,5 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Cashbot</a>
+    <i class="bi bi-robot red"></i>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/big-expenses"
+            routerLinkActive="selected"
+            >Big expenses</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/regular-expenses"
+            routerLinkActive="selected"
+            >Regular expenses</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/regular-expenses"
+            routerLinkActive="selected"
+            >Contracts</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div>
-  <h1>Your expenses analyzed and explained</h1>
+  <h1 class="margin-x">Save money through AnalyzeRobot</h1>
   <app-all-expenses></app-all-expenses>
 </div>
 <router-outlet></router-outlet>

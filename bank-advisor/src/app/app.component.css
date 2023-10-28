@@ -1,0 +1,9 @@
+.margin-x {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.red {
+  color: red !important;
+  fill: red !important;
+}
