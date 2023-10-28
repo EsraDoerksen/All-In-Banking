@@ -8,7 +8,7 @@ export interface AppState {
 
 export const initialState: AppState = {
   count: 0,
-  isLoggedIn: false
+  isLoggedIn: false,
 };
 
 export const appReducer = createReducer(
