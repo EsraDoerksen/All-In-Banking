@@ -29,28 +29,28 @@ export class AllExpensesComponent {
       transactions: [
         {
           timeStamp: new Date(),
-          amount: 700,
+          amount: 200,
           description: 'Drone',
           location: 'Media Markt',
           standingOrder: false,
         } as Transaction,
         {
           timeStamp: new Date(),
-          amount: 700,
+          amount: 100,
           description: 'Drone',
           location: 'Media Markt',
           standingOrder: false,
         } as Transaction,
         {
           timeStamp: new Date(),
-          amount: 700,
+          amount: 302,
           description: 'Drone',
           location: 'Media Markt',
           standingOrder: false,
         } as Transaction,
         {
           timeStamp: new Date(),
-          amount: 700,
+          amount: 500,
           description: 'Drone',
           location: 'Media Markt',
           standingOrder: false,
@@ -79,7 +79,7 @@ export class AllExpensesComponent {
 
   filterTransactionsIntoGroups(account: Account) {
     this.bigTransactions = account.transactions.filter((t) => {
-      t.amount > 300;
+      return t.amount > 300;
     });
 
     const transactionCounts: { [key: string]: number } = {};
