@@ -29,9 +29,16 @@ export class AllExpensesComponent {
       transactions: [
         {
           timeStamp: new Date(),
+          amount: 275,
+          description: 'Zusatz Krankenkasse',
+          location: 'Assura',
+          standingOrder: true,
+        } as Transaction,
+        {
+          timeStamp: new Date(),
           amount: 200,
-          description: 'Drone',
-          location: 'Media Markt',
+          description: 'Krankenkasse',
+          location: 'Atupri',
           standingOrder: true,
         } as Transaction,
         {
