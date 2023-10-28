@@ -1,0 +1,40 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e0e0e0;
+}
+.login-card {
+  width: 300px;
+  transform: translateY(-50px);
+  animation: slideUp 0.5s forwards;
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  overflow: hidden;
+}
+mat-card h2 {
+  font-size: 24px;
+}
+mat-card p {
+  font-size: 18px;
+}
+.card-background {
+  background-size: cover;
+  background: linear-gradient(to top, #FF5858, #FF8C69) no-repeat center;
+}
