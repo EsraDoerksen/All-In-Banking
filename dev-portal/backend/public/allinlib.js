@@ -15,8 +15,8 @@ async function upsertDb(key, value) {
     });
     window.parent.postMessage(message, '*');
     window.addEventListener('message', async function (event) {
-      console.log(event.data);
-      if (event.data.messageId === mId) {
+      eData = JSON.parse(event.data);
+      if (eData.messageId === mId) {
         res();
       }
     });
@@ -42,7 +42,7 @@ async function listDb() {
   });
 }
 
-async function account(key, value) {
+async function account() {
   return new Promise((res, rej) => {
     const mId = nextMessageId();
 
@@ -52,15 +52,15 @@ async function account(key, value) {
     });
     window.parent.postMessage(message, '*');
     window.addEventListener('message', async function (event) {
-      console.log(event.data);
-      if (event.data.messageId === mId) {
-        res(JSON.parse(event.data.account));
+      eData = JSON.parse(event.data);
+      if (eData.messageId === mId) {
+        res(eData.account);
       }
     });
   });
 }
 
-async function user(key, value) {
+async function user() {
   return new Promise((res, rej) => {
     const mId = nextMessageId();
 
@@ -70,9 +70,9 @@ async function user(key, value) {
     });
     window.parent.postMessage(message, '*');
     window.addEventListener('message', async function (event) {
-      console.log(event.data);
-      if (event.data.messageId === mId) {
-        res(JSON.parse(event.data.user));
+      eData = JSON.parse(event.data);
+      if (eData.messageId === mId) {
+        res(eData.user);
       }
     });
   });
