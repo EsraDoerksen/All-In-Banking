@@ -5,8 +5,9 @@
     </div>
     <div id="description" class="col-6 ms-4 me-4 p-3">
       <h5>
-        <b>Name</b><br>
-        Description
+        <b>{{ match.firstname }} {{ match.lastname }}</b><br>
+        {{ match.city }} / {{ match.birthdate }}<br>
+        Match Reason: {{ match.reason }}
       </h5>
     </div>
     <div class="col-3">

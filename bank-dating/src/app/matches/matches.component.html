@@ -1,3 +1,6 @@
-<div>
-  <app-person-card></app-person-card>
+<div *ngFor="let match of matches">
+  <app-person-card [match]="match"></app-person-card>
+</div>
+<div class="text-center m-3" *ngIf="matches.length === 0">
+  <h1>No Matches :(</h1>
 </div>

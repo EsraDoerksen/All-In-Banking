@@ -1,0 +1,30 @@
+<div class="app-general-text">
+  <p>Welcome to your secure apps, {{ profile.firstname }}.</p>
+</div>
+
+<div class="user-info-container">
+  <div class="profile-container">
+    <h2>My profile</h2>
+    <div class="profile-details">
+      <p><span class="profile-label">Name:</span> {{ profile.firstname }} {{ profile.lastname }}</p>
+      <p><span class="profile-label">Birthdate:</span> {{ profile.birthdate | date:'longDate' }}</p>
+      <p><span class="profile-label">Sex:</span> {{ profile.sex }}</p>
+      <p><span class="profile-label">City:</span> {{ profile.city }}</p>
+    </div>
+  </div>
+
+  <div class="transaction-container">
+    <h2>Transactions (Balance: 5000)</h2>
+    <ng-container *ngFor="let transaction of transactions">
+      <div class="transaction-card">
+        <p class="transaction-description">{{ transaction.description }}</p>
+        <p class="transaction-amount">${{ transaction.amount.toFixed(2) }}</p>
+        <p class="transaction-location">{{ transaction.location }}</p>
+        <p class="transaction-date">{{ transaction.timestamp }}</p>
+      </div>
+    </ng-container>
+    <ng-template #noTransactions>
+      <p>No transactions available.</p>
+    </ng-template>
+  </div>
+</div>

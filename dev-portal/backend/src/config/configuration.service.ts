@@ -6,6 +6,10 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 export class ConfigurationService {
   constructor(private readonly configService: ConfigService) {}
 
+  get jwkUri(): string {
+    return this.configService.get('JWK_URI');
+  }
+
   get typeOrmConfig(): TypeOrmModuleOptions {
     return {
       type: 'mariadb',

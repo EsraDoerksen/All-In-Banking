@@ -23,6 +23,9 @@ import { RouterModule } from '@angular/router';
 import {AuthModule, LogLevel} from "angular-auth-oidc-client";
 import {AuthEffects} from "./auth/store/auth.effects";
 import { FooterComponent } from './components/footer/footer.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
+import {MatDividerModule} from "@angular/material/divider";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AppsListComponent,
     HomepageComponent,
     LoginPageComponent,
-    FooterComponent
+    FooterComponent,
+    UserInfoComponent
   ],
   imports: [
     RouterModule,
@@ -61,6 +65,8 @@ import { FooterComponent } from './components/footer/footer.component';
         logLevel: LogLevel.Debug,
       },
     }),
+    MatDividerModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
