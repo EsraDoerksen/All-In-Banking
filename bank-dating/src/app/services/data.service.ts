@@ -7,9 +7,27 @@ import {Account} from '../models/account.interface';
 })
 
 export class DataService {
-  private users = [{}] as User[];
-  accounts: Account[] = [{}] as Account[];
+  currentUser = {} as User;
+  currentAccount = {} as Account;
+  users = [] as User[];
+  accounts = [] as Account[];
 
+
+  getCurrentUser(): User {
+    return this.currentUser;
+  }
+
+  setCurrentUser(value: User) {
+    this.currentUser = value;
+  }
+
+  getCurrentAccount(): Account {
+    return this.currentAccount;
+  }
+
+  setCurrentAccount(value: Account) {
+    this.currentAccount = value;
+  }
 
   setUsers(users: User[]) {
     this.users = users;

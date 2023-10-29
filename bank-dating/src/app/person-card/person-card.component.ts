@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Match} from '../models/match.interface';
 
 @Component({
   selector: 'app-person-card',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./person-card.component.css']
 })
 export class PersonCardComponent {
-
+  @Input() match = {} as Match;
 }
