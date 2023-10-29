@@ -8,9 +8,11 @@ import { App } from './entity/app.entity';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { SharedDb } from './entity/shared-db.entity';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
+    HttpModule,
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),

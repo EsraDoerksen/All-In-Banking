@@ -91,7 +91,7 @@
           });
           const returnMessage = JSON.stringify({
             messageId: data.messageId,
-            user: await result.json(),
+            account: await result.json(),
           });
           console.log('return messae: ' + returnMessage);
           event.source.postMessage(returnMessage, event.origin);

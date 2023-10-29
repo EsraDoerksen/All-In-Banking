@@ -5,7 +5,7 @@
     <script src="/allinlib.js"></script>
     <script>
       async function machen() {
-        const dbSachen = JSON.stringify(await listDb());
+        const dbSachen = JSON.stringify(await account());
         document.getElementById('frame').innerText = dbSachen;
         console.log('123' + dbSachen);
       }

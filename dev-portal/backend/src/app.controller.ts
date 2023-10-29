@@ -1,9 +1,14 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
+import { HttpService } from '@nestjs/axios';
+import { firstValueFrom } from 'rxjs';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly httpService: HttpService,
+  ) {}
 
   @Get('apps')
   listApps() {
@@ -22,12 +27,20 @@ export class AppController {
   }
 
   @Get('user')
-  getUser() {
-    return { user: '123' };
+  async getUser() {
+    const userId = 'auth0|653d2616b40aed8716e454dc';
+    const user = await firstValueFrom(
+      this.httpService.get(`http://localhost:3000/userdev/${userId}`),
+    );
+    return user.data;
   }
 
   @Get('account')
-  getAccount() {
-    return { account: '123' };
+  async getAccount() {
+    const userId = 'auth0|653d2616b40aed8716e454dc';
+    const account = await firstValueFrom(
+      this.httpService.get(`http://localhost:3000/accountdev/${userId}`),
+    );
+    return account.data;
   }
 }
