@@ -30,6 +30,7 @@ export class AppService {
     const response = await firstValueFrom(
       this.httpService.get(`${this.configService.devPortalRootUrl}/apps`),
     );
+    console.log(response.data);
     return response.data;
   }
 }
