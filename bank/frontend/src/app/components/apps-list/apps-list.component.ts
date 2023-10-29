@@ -51,8 +51,6 @@ export class AppsListComponent implements OnInit {
           }
         });
         this.apps = response.data;
-        console.log(this.apps);
-        console.log("ici");
         this.iconDataUrls = this.apps.map(app => this.convertIconDataToUrl(app.icon.data));
       } catch (error) {
         console.error('Error :', error);

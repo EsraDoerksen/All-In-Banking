@@ -1,8 +1,8 @@
 .footer-container {
+  margin-top: 5%;
   width: 100%;
-  background-color: #2C3E50; /* Deep blue-gray background for the footer */
+  background-color: #2C3E50;
   padding: 10px 0;
-  position: fixed;
   bottom: 0;
   z-index: 1000;
 }
@@ -11,17 +11,17 @@
   width: 80%;
   margin: 0 auto;
   text-align: center;
-  color: #EAEDED; /* Light gray for readability against the footer background */
+  color: #EAEDED;
   font-size: 14px;
 }
 
 .footer-content a {
-  color: #EAEDED; /* Matches the text color */
+  color: #EAEDED;
   text-decoration: none;
   margin: 0 10px;
   transition: color 0.3s;
 }
 
 .footer-content a:hover {
-  color: #BDC3C7; /* Slightly darker gray for hover state */
+  color: #BDC3C7;
 }
