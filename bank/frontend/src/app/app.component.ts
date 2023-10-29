@@ -21,8 +21,8 @@ export class AppComponent implements OnInit {
               private router: Router,
               public oidcSecurityService: OidcSecurityService) {}
 
-  ngOnInit() {
-    this.oidcSecurityService
+  async ngOnInit() {
+    await this.oidcSecurityService
       .checkAuth()
       .subscribe((loginResponse: LoginResponse) => {
         const {isAuthenticated, userData, accessToken, idToken, configId} =
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
         if (!isAuthenticated) {
           console.log("is not isAuthenticated");
           this.login();
-          console.log("is not Authenticated")
+          console.log("is Authenticated")
           console.log("accessToken: ", accessToken)
         } else {
           console.log("isAuthenticated");
