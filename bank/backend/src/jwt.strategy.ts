@@ -12,7 +12,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       secretOrKeyProvider: passportJwtSecret({
         jwksUri: configurationService.jwkUri,
         handleSigningKeyError: (err, cb) => {
-          console.warn(err);
+          console.log(err);
           cb(err);
         },
       }),
@@ -21,7 +21,22 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  //   async validate(payload: any) {
-  //     return { userId: payload.sub, username: payload.username };
-  //   }
+  async validate(payload: Payload) {
+    return { userId: payload.sub };
+  }
 }
+
+type Payload = {
+  nickname: string;
+  name: string;
+  picture: string;
+  updated_at: string;
+  email: string;
+  email_verified: boolean;
+  iss: string;
+  aud: string;
+  iat: number;
+  exp: number;
+  sub: string;
+  sid: string;
+};
