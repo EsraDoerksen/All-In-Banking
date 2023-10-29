@@ -11,10 +11,11 @@ export function formatDate(date: Date): string {
 export function getMatches(currentUser: User, currentAccount: Account, users: User[], accounts: Account[]): Match[] {
   let matches = [] as Match[];
 
+  /*
   users.forEach((user) => {
     // filter sex
     if (user.sex !== currentUser.sex) {
-      console.log("match added")
+      console.log("match added (sex)")
       matches.push({
         userId: user.userId,
         firstname: user.firstname,
@@ -26,19 +27,19 @@ export function getMatches(currentUser: User, currentAccount: Account, users: Us
       });
     }
   });
+  */
 
-  // remove duplicates
-  let results = [] as Match[]
-
-  matches.forEach((match) => {
-    results.forEach((result) => {
-      if (result.userId !== match.userId) {
-
-      };
-
-      results.push(match);
+  users.forEach((user) => {
+    matches.push({
+      userId: user.userId,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      birthdate: user.birthdate,
+      sex: user.sex,
+      city: user.city,
+      reason: matchReasonsEnum.age + ' / ' + matchReasonsEnum.transactionLocation + ' / ' + matchReasonsEnum.transactionType,
     });
   });
 
-  return results as Match[];
+  return matches as Match[];
 }

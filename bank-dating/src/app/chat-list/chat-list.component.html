@@ -1,7 +1,4 @@
-<div>
-  <app-chat-entry></app-chat-entry>
-  <app-chat-entry></app-chat-entry>
-  <app-chat-entry></app-chat-entry>
-  <app-chat-entry></app-chat-entry>
+<div *ngFor="let name of names">
+  <app-chat-entry [name]="name"></app-chat-entry>
 </div>
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {User} from '../models/user.interface';
 import {DataService} from '../services/data.service';
 import {Account} from '../models/account.interface';
-import {getMatches} from '../util/date.util';
+import {getMatches} from '../util/data.util';
 import {Match} from '../models/match.interface';
 
 @Component({

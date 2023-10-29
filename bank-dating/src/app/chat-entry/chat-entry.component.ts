@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {User} from "../models/user.interface";
 
 @Component({
   selector: 'app-chat-entry',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./chat-entry.component.css']
 })
 export class ChatEntryComponent {
-
+  @Input() name = '';
 }

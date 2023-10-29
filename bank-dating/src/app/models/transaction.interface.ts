@@ -1,7 +1,7 @@
 export interface Transaction {
-  timeStamp: string;
+  timestamp: string;
   description: string;
-  amount: number;
   location: string;
+  amount: number;
   standingOrder: boolean;
 }

@@ -8,4 +8,10 @@ import {User} from '../models/user.interface';
 })
 export class ChatListComponent {
   @Input() user: User = {} as User;
+
+  names = [
+    'Billy Billford',
+    'Bob Dimepiece',
+    'Hamudi	Goldstein',
+  ]
 }
