@@ -16,9 +16,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <button class="nav-link active" (click)="setBigTransactions()">
-            Big expeses
-          </button>
+          <a
+            class="nav-link"
+            routerLink="/big-expenses"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >Big expenses</a
+          >
         </li>
         <li class="nav-item">
           <a
@@ -58,4 +62,4 @@
 <div>
   <app-all-expenses></app-all-expenses>
 </div>
-<router-outlet></router-outlet>
+<div><router-outlet></router-outlet></div>

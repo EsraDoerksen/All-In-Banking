@@ -3,6 +3,7 @@ import { User } from '../../models/user.interface';
 import { Account } from '../../models/account.interface';
 import { Transaction } from '../../models/transaction.interface';
 import { formatDate } from '../../util/date.util';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-all-expenses',
@@ -17,7 +18,7 @@ export class AllExpensesComponent {
   contractTransactions: Transaction[] = [];
   route: string | null = '';
 
-  constructor() {
+  constructor(dataService: DataService) {
     this.route = localStorage.getItem('route');
     this.user = {
       userId: '1',
@@ -83,6 +84,8 @@ export class AllExpensesComponent {
     } as Account;
     this.requestValuesFromDevPortal();
     this.filterTransactionsIntoGroups(this.account);
+    dataService.setUser(this.user);
+    dataService.setAccount(this.account);
   }
 
   requestValuesFromDevPortal() {}
