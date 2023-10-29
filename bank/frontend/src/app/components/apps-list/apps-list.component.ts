@@ -17,7 +17,7 @@ import * as AppActions from "../../store/actions/app.actions";
 })
 export class AppsListComponent implements OnInit {
   cols: number;
-  iconDataUrl: string;
+  iconDataUrls: string[] = [];
   apps: App[] = [];
   accessToken: string | null = null;
 
@@ -26,7 +26,6 @@ export class AppsListComponent implements OnInit {
               public oidcSecurityService: OidcSecurityService
   ) {
     this.cols = 2;
-    this.iconDataUrl = '';
   }
 
   async ngOnInit() {
@@ -40,7 +39,6 @@ export class AppsListComponent implements OnInit {
       this.listenToDeviceSize();
       await this.getApps();
     }
-    //this.iconDataUrl = this.convertIconDataToUrl(this.apps[0].icon.data);
   }
 
   private async getApps() {
@@ -53,6 +51,9 @@ export class AppsListComponent implements OnInit {
           }
         });
         this.apps = response.data;
+        console.log(this.apps);
+        console.log("ici");
+        this.iconDataUrls = this.apps.map(app => this.convertIconDataToUrl(app.icon.data));
       } catch (error) {
         console.error('Error :', error);
       }
@@ -61,9 +62,10 @@ export class AppsListComponent implements OnInit {
     }
   }
 
-  private convertIconDataToUrl(iconData: number[]): string {
-    const base64 = btoa(String.fromCharCode.apply(null, iconData));
-    return `data:image/png;base64,${base64}`;
+  convertIconDataToUrl(iconData: number[]): string {
+    // Convert the byte array to a string
+    const svgString = String.fromCharCode.apply(null, iconData);
+    return 'data:image/svg+xml,' + encodeURIComponent(svgString);
   }
 
   openInNewTab(url: string) {

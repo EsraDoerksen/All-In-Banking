@@ -57,3 +57,10 @@ mat-card p {
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.app-icon {
+  width: 100px;  /* Set the desired width */
+  height: 100px; /* Set the desired height */
+  display: block; /* To ensure it's centered if its parent has text-align: center */
+  margin: 0 auto; /* Center the image horizontally */
+}
