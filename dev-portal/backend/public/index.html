@@ -38,6 +38,8 @@
       iframe.setAttribute('src', 'http://localhost:3001/apps/' + appId);
       iframe.setAttribute('width', '100%');
       iframe.setAttribute('height', '95%');
+      iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+
       //iframe.setAttribute('scrolling', 'no');
 
       window.addEventListener('message', async function (event) {
