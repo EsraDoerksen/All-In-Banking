@@ -3,6 +3,7 @@ import {User} from './models/user.interface';
 import {Account} from './models/account.interface';
 import {Transaction} from './models/transaction.interface';
 import {formatDate} from './util/date.util';
+import {DataService} from "./services/data.service";
 
 @Component({
   selector: 'app-root',
@@ -12,15 +13,18 @@ import {formatDate} from './util/date.util';
 export class AppComponent {
   title = 'bank-dating';
 
-  user: User = {} as User;
-  account: Account = {} as Account;
-  constructor() {
+  users: User[] = [{}] as User[];
+  accounts: Account[] = [{}] as Account[];
+  constructor(private dataService: DataService) {}
+  ngOnInit() {
     this.mockValuesFromDevPortal();
+    this.dataService.setUsers(this.users)
   }
 
   requestValuesFromDevPortal() {}
   mockValuesFromDevPortal() {
-    this.account = {
+    this.accounts = [{
+      userId: '1',
       balance: 23000,
       transactions: [
         {
@@ -73,15 +77,15 @@ export class AppComponent {
           standingOrder: false,
         } as Transaction,
       ],
-    } as Account;
+    }] as Account[];
 
-    this.user = {
+    this.users = [{
       userId: '1',
       firstname: 'Esra',
       lastname: 'Doerksen',
       birthdate: new Date('2002-08-05'),
       city: 'Basel',
       sex: 'Männlich',
-    } as User;
+    }] as User[];
   }
 }
