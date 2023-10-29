@@ -1,6 +1,7 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
 .example-button-row button,
 .example-button-row a {
   margin-right: 8px;
@@ -11,10 +12,15 @@
 }
 
 mat-grid-tile {
-  background: lightblue;
+  background: #F1F5F8; /* Subtle blue-gray for a calm, professional feel */
 }
 
 .mat-toolbar {
-  background-color: #3b5998 !important;
+  background-color: #1E3A5A !important; /* Dark blue */
 }
 
+/* This ensures that text in your toolbar is of color whitesmoke */
+.mat-toolbar,
+.mat-toolbar * {
+  color: whitesmoke;
+}
