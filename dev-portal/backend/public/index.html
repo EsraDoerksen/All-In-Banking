@@ -48,6 +48,7 @@
             headers: {
               Accept: 'application/json',
               'Content-Type': 'application/json',
+              Authorization: `Bearer ${id_token}`,
             },
             body: JSON.stringify({ appId, key: data.key, value: data.value }),
           });
@@ -60,6 +61,7 @@
             headers: {
               Accept: 'application/json',
               'Content-Type': 'application/json',
+              Authorization: `Bearer ${id_token}`,
             },
             body: JSON.stringify({ appId }),
           });
@@ -70,10 +72,12 @@
           console.log('return messae: ' + returnMessage);
           event.source.postMessage(returnMessage, event.origin);
         } else if (data.operation === 'user') {
+          console.log('idtokene    ' + id_token);
           const result = await fetch('http://localhost:3001/user', {
             method: 'get',
             headers: {
               Accept: 'application/json',
+              Authorization: `Bearer ${id_token}`,
             },
           });
           const returnMessage = JSON.stringify({
@@ -87,6 +91,7 @@
             method: 'get',
             headers: {
               Accept: 'application/json',
+              Authorization: `Bearer ${id_token}`,
             },
           });
           const returnMessage = JSON.stringify({

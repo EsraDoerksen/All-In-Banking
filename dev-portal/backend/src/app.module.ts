@@ -9,10 +9,14 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { SharedDb } from './entity/shared-db.entity';
 import { HttpModule } from '@nestjs/axios';
+import { PassportModule } from '@nestjs/passport';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
   imports: [
     HttpModule,
+    PassportModule,
+    ConfigurationModule,
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
@@ -25,6 +29,6 @@ import { HttpModule } from '@nestjs/axios';
     TypeOrmModule.forFeature([App, SharedDb]),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, JwtStrategy],
 })
 export class AppModule {}
