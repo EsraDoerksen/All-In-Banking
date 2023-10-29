@@ -22,6 +22,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { RouterModule } from '@angular/router';
 import {AuthModule, LogLevel} from "angular-auth-oidc-client";
 import {AuthEffects} from "./auth/store/auth.effects";
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {AuthEffects} from "./auth/store/auth.effects";
     HeaderComponent,
     AppsListComponent,
     HomepageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    FooterComponent
   ],
   imports: [
     RouterModule,
