@@ -1,17 +1,4 @@
-.text-orange {
-  border-color: orange;
-}
-
-.text-red {
-  border-color: red;
-}
-
-.red {
-  fill: red;
-  color: red;
-  background-color: red;
-}
-
-.bg-grey {
-  background-color: grey;
+.margin-x {
+  margin-left: 15%;
+  margin-right: 15%;
 }

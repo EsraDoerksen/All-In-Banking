@@ -1,42 +1,45 @@
-<h1 class="display-5">Big expenses</h1>
-<p>
-  Those are the transactions, which have a big spending amount. You should
-  analyze what you are spending your money on.
-</p>
+<div class="margin-x">
+  <h1 class="display-5">Big expenses</h1>
+  <p>
+    Those are the transactions, which have a big spending amount. You should
+    analyze what you are spending your money on.
+  </p>
 
-<ul *ngFor="let bigTransaction of bigTransactions" class="list-group">
-  <li class="d-flex align-items-center justify-content-center mb-2 rounded">
-    <div class="card mb-3 w-100 border border-success rounded">
-      <div class="row g-0">
-        <div class="col-md-2 bg-light">
-          <p class="text-center align-text-middle fw-bold mt-4 h5">
-            {{ bigTransaction.amount }} CHF
-          </p>
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{ bigTransaction.description }}</h5>
-            <p class="card-text">
-              You bought a
-              {{ bigTransaction.description }} at {{ bigTransaction.location }}.
+  <ul *ngFor="let bigTransaction of bigTransactions" class="list-group">
+    <li class="d-flex align-items-center justify-content-center mb-2 rounded">
+      <div class="card mb-3 w-100 border border-success rounded">
+        <div class="row g-0">
+          <div class="col-md-2 bg-light">
+            <p class="text-center align-text-middle fw-bold mt-4 h5">
+              {{ bigTransaction.amount }} CHF
+            </p>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ bigTransaction.description }}</h5>
+              <p class="card-text">
+                You bought a
+                {{ bigTransaction.description }} at
+                {{ bigTransaction.location }}.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-2 bg-light p-1">
+            <p class="text-center align-text-middle mt-4">
+              Bought at the {{ bigTransaction.timeStamp }}
             </p>
           </div>
         </div>
-        <div class="col-md-2 bg-light p-1">
-          <p class="text-center align-text-middle mt-4">
-            Bought at the {{ bigTransaction.timeStamp }}
-          </p>
-        </div>
       </div>
-    </div>
-  </li>
-</ul>
-<div class="card mb-3 w-100 border border-success rounded bg-success">
-  <div class="row g-0">
-    <div>
-      <div class="card-body">
-        <h5 class="card-title">Test</h5>
-        <p class="card-text">Test</p>
+    </li>
+  </ul>
+  <div class="card mb-3 w-100 border border-success rounded bg-success">
+    <div class="row g-0">
+      <div>
+        <div class="card-body">
+          <h5 class="card-title">Test</h5>
+          <p class="card-text">Test</p>
+        </div>
       </div>
     </div>
   </div>
