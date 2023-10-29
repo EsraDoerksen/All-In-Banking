@@ -23,7 +23,7 @@ async function upsertDb(key, value) {
   });
 }
 
-async function listDb(key, value) {
+async function listDb() {
   return new Promise((res, rej) => {
     const mId = nextMessageId();
 
