@@ -14,6 +14,7 @@
         const appId = urlParams.get('appId');
         window.sessionStorage.setItem('appId', appId);
         window.location.href = `https://dev-o8lopd1x78xgb35o.us.auth0.com/authorize?client_id=${clientId}&redirect_uri=http%3A%2F%2Flocalhost%3A3001&response_type=code&scope=openid%20profile%20email%20offline_access`;
+        return;
       }
 
       const data = new URLSearchParams();

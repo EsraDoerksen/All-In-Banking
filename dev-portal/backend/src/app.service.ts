@@ -17,7 +17,7 @@ export class AppService {
     const apps = await this.appRepository.find();
     return apps.map((app) => ({
       ...app,
-      url: `http://localhost:3001?${app.appId}`,
+      url: `http://localhost:3001?appId=${app.appId}`,
     }));
   }
 
