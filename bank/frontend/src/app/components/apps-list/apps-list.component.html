@@ -1,17 +1,22 @@
-<div class="app-general-text">
-  <p>We're delighted to have you here. Feel free to open any app of your choice. Please note, third-party applications are prohibited from accessing your data, as it's securely managed internally by us.</p>
-</div>
-<div *ngIf="apps">
-  <mat-grid-list [cols]="cols" rowHeight="2:1" gutterSize="16px">
-    <mat-grid-tile *ngFor="let item of apps">
-      <mat-card class="card-background">
-        <mat-card-content>
-          <h2 class="centered-title">{{ item.name }}</h2>
-          <p>{{ item.description }}</p>
-        </mat-card-content>
-        <img [src]="iconDataUrl" alt="{{ item.name }} Icon">
-        <button mat-button color="primary">Open</button>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="red">
+  <div class="app-general-text">
+    <p>We're delighted to have you here. Feel free to open any app of your choice. Please note, third-party applications
+      are prohibited from accessing your data, as it's securely managed internally by us.</p>
+  </div>
+  <div *ngIf="apps">
+    <div class="wrapper">
+      <mat-grid-list [cols]="cols" rowHeight="2:1" gutterSize="16px">
+        <mat-grid-tile *ngFor="let item of apps">
+          <mat-card class="card-background">
+            <mat-card-content>
+              <h2 class="centered-title">{{ item.name }}</h2>
+              <p class="centered-title">{{ item.description }}</p>
+            </mat-card-content>
+            <img [src]="iconDataUrl" alt="{{ item.name }} Icon">
+            <button mat-button color="primary" (click)="openInNewTab(item.url)">Open</button>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
 </div>

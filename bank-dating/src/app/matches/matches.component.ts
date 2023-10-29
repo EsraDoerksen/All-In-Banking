@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {User} from "../models/user.interface";
 
 @Component({
   selector: 'app-matches',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./matches.component.css']
 })
 export class MatchesComponent {
-
+  @Input() user: User = {} as User;
 }
