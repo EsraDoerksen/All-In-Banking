@@ -17,18 +17,31 @@ export class RegularExpensesComponent {
   constructor(dataService: DataService) {
     this.user = dataService.getUser();
     this.account = dataService.getAccount();
-    const transactionCounts: { [key: string]: number } = {};
 
-    this.account.transactions.forEach((t) => {
-      if (transactionCounts[t.location]) {
-        transactionCounts[t.location]++;
-      } else {
-        transactionCounts[t.location] = 1;
-      }
-    });
-
-    this.regularTransactions = this.account.transactions.filter(
-      (t) => transactionCounts[t.location] > 2
+    const allTransactionlocations = this.account.transactions.map(
+      (t) => t.location
     );
+
+    this.regularTransactions = this.account.transactions.filter((t) => {
+      return this.isStringContainedMoreThanOnce(
+        allTransactionlocations,
+        t.location
+      );
+    });
+  }
+  private isStringContainedMoreThanOnce(
+    arr: string[],
+    target: string
+  ): boolean {
+    let count = 0;
+    for (const item of arr) {
+      if (item === target) {
+        count++;
+        if (count > 1) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }
