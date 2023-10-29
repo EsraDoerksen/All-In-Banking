@@ -5,6 +5,7 @@ import * as AppActions from "../../store/actions/app.actions";
 import {Observable} from "rxjs";
 import { isUserLoggedIn } from "../../store/selectors/app.selectors";
 import {Router} from "@angular/router";
+import {OidcSecurityService} from "angular-auth-oidc-client";
 
 @Component({
   selector: 'app-header',
@@ -15,15 +16,28 @@ export class HeaderComponent {
   isUserLoggedIn$: Observable<boolean>;
 
   constructor(private store: Store<State>,
-              private router: Router
+              private router: Router,
+              public oidcSecurityService: OidcSecurityService
   ) {
     this.isUserLoggedIn$ = this.store.select(isUserLoggedIn);
   }
 
   login() {
-    this.store.dispatch(AppActions.login());
-    localStorage.setItem('authToken', 'your_token_here');
-    this.router.navigate(['/']);
+    let token: string;
+
+    this.oidcSecurityService.getAccessToken().subscribe(
+      accessToken => {
+        token = accessToken;
+        console.log("accessToken: " + accessToken)
+        this.store.dispatch(AppActions.login());
+        this.router.navigate(['/']);
+      },
+      error => {
+        console.error('Error getting access token:', error);
+        this.store.dispatch(AppActions.logout());
+        this.router.navigate(['/login']);
+      }
+    );
   }
 
   logout() {
