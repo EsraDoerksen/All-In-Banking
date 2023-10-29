@@ -7,18 +7,19 @@
   </body>
   <script>
     async function init() {
+      const clientId = 'rL40HzJrA34p4CdhcQjgF65Z4mfwjZ40';
       const urlParams = new URLSearchParams(window.location.search);
       const code = urlParams.get('code');
       if (!code) {
         const appId = urlParams.get('appId');
         window.sessionStorage.setItem('appId', appId);
-        window.location.href =
-          'https://dev-o8lopd1x78xgb35o.us.auth0.com/authorize?client_id=1IOUcn5eG1ZTrI8DJ9V4690c8T40NK3U&redirect_uri=http%3A%2F%2Flocalhost%3A3001&response_type=code&scope=openid%20profile%20email%20offline_access';
+        window.location.href = `https://dev-o8lopd1x78xgb35o.us.auth0.com/authorize?client_id=${clientId}&redirect_uri=http%3A%2F%2Flocalhost%3A3001&response_type=code&scope=openid%20profile%20email%20offline_access`;
+        return;
       }
 
       const data = new URLSearchParams();
       data.append('grant_type', 'authorization_code');
-      data.append('client_id', '1IOUcn5eG1ZTrI8DJ9V4690c8T40NK3U');
+      data.append('client_id', clientId);
       data.append('code', code);
       data.append('redirect_uri', 'http://localhost:3001');
 
@@ -30,7 +31,7 @@
         },
       );
       const { id_token } = await result.json();
-      console.log(id_token);
+      // console.log(id_token);
 
       const appId = window.sessionStorage.getItem('appId');
       const iframe = document.createElement('iframe');
@@ -38,6 +39,65 @@
       iframe.setAttribute('width', '100%');
       iframe.setAttribute('height', '95%');
       //iframe.setAttribute('scrolling', 'no');
+
+      window.addEventListener('message', async function (event) {
+        const data = JSON.parse(event.data);
+        if (data.operation === 'sharedDBUpsert') {
+          const result = await fetch('http://localhost:3001/sharedDBUpsert', {
+            method: 'post',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ appId, key: data.key, value: data.value }),
+          });
+          const returnMessage = JSON.stringify({ messageId: data.messageId });
+          console.log('return messae: ' + returnMessage);
+          event.source.postMessage(returnMessage, event.origin);
+        } else if (data.operation === 'sharedDBList') {
+          const result = await fetch('http://localhost:3001/sharedDBList', {
+            method: 'post',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ appId }),
+          });
+          const returnMessage = JSON.stringify({
+            messageId: data.messageId,
+            list: await result.json(),
+          });
+          console.log('return messae: ' + returnMessage);
+          event.source.postMessage(returnMessage, event.origin);
+        } else if (data.operation === 'user') {
+          const result = await fetch('http://localhost:3001/user', {
+            method: 'get',
+            headers: {
+              Accept: 'application/json',
+            },
+          });
+          const returnMessage = JSON.stringify({
+            messageId: data.messageId,
+            user: await result.json(),
+          });
+          console.log('return messae: ' + returnMessage);
+          event.source.postMessage(returnMessage, event.origin);
+        } else if (data.operation === 'account') {
+          const result = await fetch('http://localhost:3001/account', {
+            method: 'get',
+            headers: {
+              Accept: 'application/json',
+            },
+          });
+          const returnMessage = JSON.stringify({
+            messageId: data.messageId,
+            account: await result.json(),
+          });
+          console.log('return messae: ' + returnMessage);
+          event.source.postMessage(returnMessage, event.origin);
+        }
+      });
+
       document.getElementById('iframe').appendChild(iframe);
     }
 

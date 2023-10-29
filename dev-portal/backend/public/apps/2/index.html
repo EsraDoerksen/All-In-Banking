@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <h1>App2-1</h1>
+    <div id="frame"></div>
+    <script src="/allinlib.js"></script>
+    <script>
+      async function machen() {
+        const dbSachen = JSON.stringify(await account());
+        document.getElementById('frame').innerText = dbSachen;
+        console.log('123' + dbSachen);
+      }
+
+      machen();
+    </script>
+  </body>
+</html>

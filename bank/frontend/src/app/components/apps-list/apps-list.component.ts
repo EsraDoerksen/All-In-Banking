@@ -5,6 +5,9 @@ import {BreakpointObserver, Breakpoints, BreakpointState} from "@angular/cdk/lay
 import {map} from "rxjs";
 import axios from 'axios';
 import {App} from "./app.model";
+import {LoginResponse, OidcSecurityService} from "angular-auth-oidc-client";
+import {HttpHeaders} from "@angular/common/http";
+import * as AppActions from "../../store/actions/app.actions";
 
 
 @Component({
@@ -14,34 +17,55 @@ import {App} from "./app.model";
 })
 export class AppsListComponent implements OnInit {
   cols: number;
-  iconDataUrl: string;
+  iconDataUrls: string[] = [];
   apps: App[] = [];
+  accessToken: string | null = null;
 
   constructor(private store: Store<State>,
-              private breakpointObserver: BreakpointObserver
+              private breakpointObserver: BreakpointObserver,
+              public oidcSecurityService: OidcSecurityService
   ) {
     this.cols = 2;
-    this.iconDataUrl = '';
   }
 
-  ngOnInit() {
-    this.listenToDeviceSize();
-    this.getApps();
-    //this.iconDataUrl = this.convertIconDataToUrl(this.apps[0].icon.data);
-  }
-
-  private async getApps() {
-    try {
-      const response = await axios.get('http://localhost:3000/apps');
-      this.apps = response.data;
-    } catch (error) {
-      console.error('Error fetching data:', error);
+  async ngOnInit() {
+    this.oidcSecurityService.getIdToken().subscribe((token) => {
+      this.accessToken = token;
+      console.log("token:" + token)
+    });
+    if (this.accessToken === null) {
+      setTimeout(() => this.ngOnInit(), 1000);
+    } else {
+      this.listenToDeviceSize();
+      await this.getApps();
     }
   }
 
-  private convertIconDataToUrl(iconData: number[]): string {
-    const base64 = btoa(String.fromCharCode.apply(null, iconData));
-    return `data:image/png;base64,${base64}`;
+  private async getApps() {
+    if (this.accessToken) {
+      try {
+        console.log("Send request with bearer token: " + this.accessToken)
+        const response = await axios.get('http://localhost:3000/apps', {
+          headers: {
+            Authorization: `Bearer ${this.accessToken}`
+          }
+        });
+        this.apps = response.data;
+        console.log(this.apps);
+        console.log("ici");
+        this.iconDataUrls = this.apps.map(app => this.convertIconDataToUrl(app.icon.data));
+      } catch (error) {
+        console.error('Error :', error);
+      }
+    } else {
+      console.error('Access token is not available.');
+    }
+  }
+
+  convertIconDataToUrl(iconData: number[]): string {
+    // Convert the byte array to a string
+    const svgString = String.fromCharCode.apply(null, iconData);
+    return 'data:image/svg+xml,' + encodeURIComponent(svgString);
   }
 
   openInNewTab(url: string) {

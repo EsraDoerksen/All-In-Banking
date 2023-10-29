@@ -1,0 +1,59 @@
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+mat-card {
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+mat-card h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: #333; /* Dark color for headline for better readability */
+}
+
+mat-card p {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #555; /* Subtle gray for general text */
+}
+
+.card-background {
+  background-size: cover;
+  background: linear-gradient(#FAFAFA, #EDEDED); /* Soft gradient from light gray to gray */
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.centered-title {
+  text-align: center;
+  margin: 0;
+}
+
+.app-general-text {
+  margin: 48px 0;
+  font-size: 18px;
+  padding: 20px;
+  background-color: rgba(245, 245, 245, 0.9); /* Light gray background */
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

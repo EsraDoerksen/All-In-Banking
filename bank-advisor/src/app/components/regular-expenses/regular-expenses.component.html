@@ -1,24 +1,48 @@
-<h1 class="display-3">Regular expenses</h1>
-<p>
-  Those are the transactions, which are regulary executed. You should ask
-  yoursef the question if that's really neccessary.
-</p>
+<div class="margin-x mt-3">
+  <h1 class="display-5">Regular expenses</h1>
+  <p>
+    Those are the transactions, which are regulary executed. Let's have a look
+    at your regular transactions:
+  </p>
 
-<ul *ngFor="let transaction of this.regularTransactions" class="list-group">
-  <li class="border">
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title">{{ transaction.description }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">
-          You purchased a {{ transaction.description }} at
-          {{ transaction.location }}
-        </h6>
-        <p class="card-text">
-          You payed {{ transaction.amount }} CHF for a
-          {{ transaction.description }}. In the future you could definitely save
-          money there!
-        </p>
+  <ul *ngFor="let transaction of this.regularTransactions" class="list-group">
+    <li class="d-flex align-items-center justify-content-center mb-2 rounded">
+      <div class="card mb-3 w-100 border border-success rounded">
+        <div class="row g-0">
+          <div class="col-md-2 bg-light">
+            <p class="text-center align-text-middle fw-bold mt-4 h5">
+              {{ transaction.amount }} CHF
+            </p>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ transaction.description }}</h5>
+              <p class="card-text">
+                You bought a
+                {{ transaction.description }} at {{ transaction.location }}.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-2 bg-light p-1">
+            <p class="text-center align-text-middle mt-4">
+              Bought at the {{ transaction.timeStamp }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="card mb-3 w-100 border border-success rounded bg-success">
+    <div class="row g-0">
+      <div>
+        <div class="card-body">
+          <h5 class="card-title">Big saving potential</h5>
+          <p class="card-text">
+            We can see, that you bought a lot of electronics in the past! You
+            can save a lot of money through secondary buys and toppreise.ch
+          </p>
+        </div>
       </div>
     </div>
-  </li>
-</ul>
+  </div>
+</div>

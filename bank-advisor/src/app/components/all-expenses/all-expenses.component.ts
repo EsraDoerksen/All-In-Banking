@@ -80,6 +80,13 @@ export class AllExpensesComponent {
           location: 'Media Markt',
           standingOrder: false,
         } as Transaction,
+        {
+          timeStamp: formatDate(new Date()),
+          amount: 700,
+          description: 'Drone',
+          location: 'Media Markt',
+          standingOrder: false,
+        } as Transaction,
       ],
     } as Account;
     this.requestValuesFromDevPortal();
